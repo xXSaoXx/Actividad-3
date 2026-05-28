@@ -76,14 +76,14 @@ class CalculadoraNotas:
         for i in range(5):
             texto = self.entradas[i].get()
 
+            if texto == "":
+                messagebox.showerror("Error", "Debe ingresar las cinco notas.")
+                return
+
             try:
                 nota = float(texto)
             except ValueError:
-                messagebox.showerror("Error", "Debe tener valores numericos, entre 0 y 5.")
-                return
-
-            if nota < 0 or nota > 5:
-                messagebox.showerror("Error", "Debe tener valores numericos, entre 0 y 5.")
+                messagebox.showerror("Error", "Las notas deben ser datos numericos.")
                 return
 
             self.notas.append(nota)
